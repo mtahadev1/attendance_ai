@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Attendance | Attendix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+    <div class="app-layout">
+        <aside class="sidebar collapsed-mobile">
+            <a href="/courses" class="back-link">← Back to Dashboard</a>
+        </aside>
+
+        <main class="main-content fade-in">
+        <header class="course-info-header saas-card">
+    <div>
+        <h1 id="displayCourseName" class="gradient-text">Loading Course...</h1>
+        <p id="displayCourseDetails">Year - Department</p>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center;">
+        <button id="downloadReportBtn" class="btn btn-secondary" style="font-size: 0.8rem;">📥 Download Excel</button>
+        <div class="live-indicator">🔴 LIVE</div>
+    </div>
+</header>
+
+            <div class="attendance-workspace">
+                <div class="camera-section">
+                    <div class="camera-container saas-card">
+                        <img id="videoFeed" src="" alt="Camera Stream" style="display: none;">
+                        <div id="cameraPlaceholder" class="placeholder">
+                            <span>📷</span>
+                            <p>Camera is currently off.</p>
+                        </div>
+                    </div>
+<div class="camera-controls saas-card mt-3">
+                        <button id="openCameraBtn" class="btn btn-secondary">1️⃣ Open Camera</button>
+                        <button id="startAttendanceBtn" class="btn btn-primary pulse-glow" disabled>2️⃣ Start Attendance</button>
+                        <button id="closeCameraBtn" class="btn btn-danger" disabled>🛑 Close Camera</button>
+                    </div>
+                </div>
+
+                <div class="students-section saas-card">
+    <h3>Detected Students</h3>
+    <div class="student-list-container">
+        <ul id="detectedStudentsList" class="student-list">
+            <li class="empty-state">Waiting for AI to detect faces...</li>
+        </ul>
+    </div>
+</div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

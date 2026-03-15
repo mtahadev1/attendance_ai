@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Attendix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dashboard-body">
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand gradient-text">Attendix</div>
+            <div class="prof-profile">
+                <div class="avatar">👨‍🏫</div>
+                <div>
+                    <h4>Dr. Ahmed</h4>
+                    <span>Professor</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/courses" class="active">📚 My Courses</a>
+                <a href="#">📊 Reports</a>
+                <a href="#">⚙️ Settings</a>
+                <a href="/" class="logout-link">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content fade-in">
+            <header class="dashboard-header">
+                <h1>Overview</h1>
+                <p>Welcome back! Here is what's happening today.</p>
+            </header>
+
+<div class="stats-grid">
+    <div class="saas-card stat-card">
+        <span class="stat-title">Total Students</span>
+        <h2 id="totalStudentsCount" class="stat-value">--</h2>
+    </div>
+    <div class="saas-card stat-card">
+        <span class="stat-title">Attendance Rate</span>
+        <h2 id="attendanceRate" class="stat-value">--%</h2>
+    </div>
+    <div class="saas-card stat-card">
+        <span class="stat-title">Today's Presence</span>
+        <h2 id="todayPresence" class="stat-value">--</h2>
+    </div>
+</div>
+
+<div class="saas-card mt-4 fade-in" style="height: 300px;">
+    <h3>Attendance Trend (Last 7 Days)</h3>
+    <canvas id="attendanceChart"></canvas>
+</div>
+
+            <div class="setup-panel saas-card">
+                <h2>Configure Attendance Session</h2>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Academic Year</label>
+                        <select id="academicYear">
+                            <option value="First Year">First Year</option>
+                            <option value="Second Year">Second Year</option>
+                            <option value="Third Year">Third Year</option>
+                            <option value="Fourth Year">Fourth Year</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Department</label>
+                        <select id="department">
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Information Systems">Information Systems</option>
+                            <option value="Software Engineering">Software Engineering</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Course Name</label>
+                        <select id="courseName">
+                            <option value="Artificial Intelligence">Artificial Intelligence</option>
+                            <option value="Data Structures">Data Structures</option>
+                            <option value="Database Systems">Database Systems</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="action-buttons mt-4">
+                    <button id="goToFaceRec" class="btn btn-primary">📷 Face Recognition Attendance</button>
+                    <button id="goToQR" class="btn btn-secondary">🔳 QR Code Attendance</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
