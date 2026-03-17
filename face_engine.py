@@ -129,23 +129,3 @@ class FaceRecognitionEngine:
         return self.current_frame
     # داخل ملف face_engine.py
 
-# 1. تحديث جلب البيانات في البداية لتشمل رقم الهاتف
-def load_known_faces(self):
-    conn = sqlite3.connect('students.db')
-    cursor = conn.cursor()
-    # جلب رقم الهاتف أيضاً
-    cursor.execute("SELECT student_id, full_name, phone_number, face_embedding FROM students") 
-    rows = cursor.fetchall()
-    # تخزين رقم الهاتف في الذاكرة
-    self.known_embeddings = [(r[0], r[1], r[2], pickle.loads(r[3])) for r in rows]
-    conn.close()
-
-# 2. تعديل الحفظ ليقوم باستدعاء دالة الواتساب
-def save_attendance(self, s_id, s_name, s_phone):
-    # كود الحفظ القديم في الداتا بيز...
-    
-    # استدعاء دالة الواتساب (تأكد من استيرادها من main.py)
-    if s_phone:
-        print(f"Sending WhatsApp to {s_name}...")
-        # ملاحظة: يفضل تشغيلها في Thread منفصل لعدم تعطيل الكاميرا
-        threading.Thread(target=send_whatsapp_notification, args=(s_phone, s_name, self.subject)).start()

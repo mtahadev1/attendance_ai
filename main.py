@@ -46,7 +46,9 @@ async def courses(request: Request):
 @app.get("/dashboard", response_class=HTMLResponse)
 async def dashboard(request: Request):
     return templates.TemplateResponse("dashboard.html", {"request": request})
-
+@app.get("/about", response_class=HTMLResponse)
+async def about(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
 # --- مسارات التحكم والتحليلات ---
 
 @app.get("/start_camera")

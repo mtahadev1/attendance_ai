@@ -1,0 +1,260 @@
+/* =========================================
+   1. CSS Variables (Minimal & Clean)
+========================================= */
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --font: 'Inter', sans-serif;
+}
+
+/* =========================================
+   2. Base Reset & Typography
+========================================= */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: var(--font); 
+}
+
+body { 
+    background-color: var(--bg-body); 
+    color: var(--text-main); 
+    line-height: 1.5; 
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-main);
+    font-weight: 600;
+}
+/* استهداف الصورة داخل كلاس .sidebar-brand */
+.sidebar-brand a img {
+    /* ضبط العرض الأقصى ليكون مناسبًا */
+    max-width: 50px; /* يمكنك تغيير هذه القيمة حسب رغبتك */
+    
+    /* ضبط الطول تلقائيًا للحفاظ على أبعاد الصورة */
+    height: auto;
+}
+.sidebar-brand a img:hover{
+    transform: scale(1.05);
+
+}
+/* =========================================
+   3. Layout (Sidebar & Main Content)
+========================================= */
+.app-layout { 
+    display: flex; 
+    min-height: 100vh; 
+}
+
+.sidebar { 
+    width: 260px; 
+    background: var(--bg-card); 
+    border-right: 1px solid var(--border); 
+    padding: 1.5rem; 
+    display: flex; 
+    flex-direction: column; 
+    position: sticky; 
+    top: 0; 
+    height: 100vh; 
+    flex-shrink: 0;
+}
+
+.sidebar-brand { 
+    font-size: 1.25rem; 
+    font-weight: 700; 
+    margin-bottom: 2rem; 
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.prof-info { 
+    margin-bottom: 2rem; 
+}
+
+.prof-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.prof-role {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-nav a { 
+    display: block; 
+    padding: 0.6rem 0.8rem; 
+    text-decoration: none; 
+    color: var(--text-muted); 
+    border-radius: 6px; 
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease; 
+}
+
+.sidebar-nav a:hover { 
+    background: #f1f5f9; 
+    color: var(--text-main); 
+}
+
+.sidebar-nav a.active { 
+    background: #eff6ff; 
+    color: var(--primary); 
+}
+
+.logout-link {
+    margin-top: auto;
+}
+
+.main-content { 
+    flex: 1; 
+    padding: 2.5rem 3rem; 
+    overflow-y: auto; 
+}
+
+.page-header {
+    margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.page-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   4. Grid & Cards
+========================================= */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.course-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.course-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    border-color: #cbd5e1;
+}
+
+.course-info {
+    margin-bottom: 2rem;
+}
+
+.course-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.course-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: block;
+}
+
+/* =========================================
+   5. Buttons
+========================================= */
+.card-actions {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-main);
+    border-color: var(--border);
+}
+
+.btn-outline:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+/* =========================================
+   6. Responsive Design
+========================================= */
+@media (max-width: 1024px) {
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .app-layout { 
+        flex-direction: column; 
+    }
+    
+    .sidebar { 
+        width: 100%; 
+        height: auto; 
+        position: static; 
+        border-right: none; 
+        border-bottom: 1px solid var(--border); 
+        padding: 1rem 1.5rem; 
+    }
+    
+    .logout-link {
+        margin-top: 1rem;
+    }
+    
+    .main-content { 
+        padding: 1.5rem; 
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+}

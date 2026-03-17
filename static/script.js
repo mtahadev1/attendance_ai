@@ -78,10 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     
                     data.attendance.forEach(student => {
                         const li = document.createElement("li");
-                        // التعديل هنا: إضافة student.id ليظهر بجوار الاسم بتنسيق أنيق
+                        // التعديل هنا: إضافة studentx.id ليظهر بجوار الاسم بتنسيق أنيق
                         li.innerHTML = `
                             <span>✅ <strong>${student.name}</strong> <span style="color: var(--primary); font-size: 0.9em; margin-left: 5px;">(${student.id})</span></span> 
-                            <span style="color: var(--text-muted); font-size: 0.85rem; font-weight: bold;">
+                            <span style="color: var(--text-muted); fonxt-size: 0.85rem; font-weight: bold;">
                                 ${student.time}
                             </span>
                         `;
